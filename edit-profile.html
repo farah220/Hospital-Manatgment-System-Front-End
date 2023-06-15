@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <title>Cloud Care</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="./node_modules/axios/dist/axios.min.js"> </script>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="dashboard.html" class="logo">
+                    <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Cloud Care</span>
+                </a>
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img" >
+                            <img class="rounded-circle" id="imageuser"src="" width="40" height="30" alt="Admin">
+                            <span class="status online"></span>
+                        </span>
+                        <span id="name"></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="user-profile.html">My Profile</a>
+                        <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                        <a class="dropdown-item" onclick="logout()" href="index.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                        class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="user-profile.html">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                    <a class="dropdown-item" onclick="logout()" href="index.html">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li>
+                            <a href="dashboard.html"><i class="fa fa-home"></i> <span>Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a href="doctors.html"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                        </li>
+
+                        <li>
+                            <a href="departments.html"><i class="fa fa-file-text"></i> <span>Departments</span></a>
+                        </li>
+                        <li>
+                            <a href="history.html"><i class="fa fa-history"></i> <span>History</span></a>
+                        </li>
+                        <li>
+                            <a href="prescriptions.html"><i class="fa fa-file-text"></i> <span>Prescriptions</span></a>
+                        </li>
+                        <li>
+                            <a href="reports.html"><i class="fa fa-file-text"></i> <span>Reports</span></a>
+                        </li>
+                        <li>
+                            <a href="invoices.html"><i class="fa fa-money"></i> <span>Invoices</span></a>
+                        </li>
+
+
+                    </ul>
+                    </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="page-title">Edit Profile</h4>
+                    </div>
+                </div>
+                <form id="profile-form">
+                    <div class="card-box" id="edituser">
+
+                        <div class="card-title">Basic Informations
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="profile-img-wrap" >
+                                    <img class="inline-block" src="" alt="user" id="old-image">
+                                    <div class="fileupload btn">
+                                        <span class="btn-text">edit</span>
+                                        <input class="upload" type="file" id="userimage">
+                                    </div>
+                                </div>
+                                <div class="profile-basic">
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <label class="focus-label"> Name</label><br>
+                                            <div class="form-group form-focus">
+
+                                                <input type="text" class="form-control floating" id="name_inp"  
+                                                    name="name" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <label class="focus-label">Emergency contact</label>
+                                            <div class="form-group form-focus">
+
+                                                <input type="text" class="form-control floating" id="emergencycontact"
+                                                      name="emergency_contact">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="text-center m-t-20">
+                    <button class="btn btn-primary submit-btn" type="button" id="save-btn">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        const token = localStorage.getItem('token');
+   const userInfo = JSON.parse(localStorage.getItem("currentUser"));
+           var oldname = userInfo.name
+            var oldimage = userInfo.image
+            var old_emergency_contact = userInfo.emergency_contact
+    document.getElementById("name").innerHTML = oldname;
+
+    document.getElementById("imageuser").setAttribute('src', oldimage)
+            //console.log(oldname,old_emergency_contact,oldimage)
+            document.getElementById("name_inp").value = oldname;
+            document.getElementById("emergencycontact").value = old_emergency_contact;
+               document.getElementById("old-image").setAttribute('src', oldimage) 
+   
+            
+               function edit(e) {
+                    let nameInput = document.getElementById('name_inp').value
+                    let emergencyInput = document.getElementById('emergencycontact').value
+                    let imageInput = document.getElementById('userimage').files[0]
+                    console.log(nameInput, emergencyInput)
+                    let data=new FormData()
+                    data.append("name", nameInput)
+                    data.append("emergency_contact", emergencyInput)
+                   data.append("image", imageInput)
+                    axios({
+                        method: "post",
+                        url: "http://127.0.0.1:8000/api/user/editUser",
+                        data: data,
+                        
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                             'Content-Type': 'multipart/form-data'
+                        },
+                    } )
+                        .then(response => {
+                            console.log('Data updated successfully.');
+                             localStorage.setItem("currentUser", JSON.stringify(response.data.data))
+                                    const newUserInfo = JSON.parse(localStorage.getItem("currentUser"));
+                            var newname = newUserInfo.name
+                            var newimage = newUserInfo.image
+                            var new_emergency_contact = newUserInfo.emergency_contact
+
+                            console.log(newname, new_emergency_contact, newimage)
+                            document.getElementById("name_inp").value = newname;
+                            document.getElementById("emergencycontact").value = new_emergency_contact;
+                            document.getElementById("old-image").setAttribute('src', newimage) 
+                              document.getElementById("name").innerHTML = newname;
+
+                            document.getElementById("imageuser").setAttribute('src', newimage)
+                        })
+                        .catch(error => {
+                            console.error('Error updating data:', error);
+                        });
+                  
+                }
+         $(document).ready(() => {
+                
+                $('#save-btn').click((event) => edit(event))
+          
+            })
+     
+      function logout() {
+            localStorage.clear();
+
+
+        }
+
+    </script>
+    
+</body>
+
+</html>

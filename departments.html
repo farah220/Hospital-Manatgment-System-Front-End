@@ -1,0 +1,361 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Cloud Care </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css2/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css2/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css2/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css2/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css2/themify-icons.css">
+    <link rel="stylesheet" href="assets/css2/nice-select.css">
+    <link rel="stylesheet" href="assets/css2/flaticon.css">
+    <link rel="stylesheet" href="assets/css2/gijgo.css">
+    <link rel="stylesheet" href="assets/css2/animate.css">
+    <link rel="stylesheet" href="assets/css2/slicknav.css">
+    <link rel="stylesheet" href="assets/css2/style2.css">
+</head>
+
+<body>
+    <div class="main-wrapper">
+
+        <div class="header">
+            <div class="header-left">
+                <a href="dashboard.html" class="logo">
+                    <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Cloud Care</span>
+                </a>
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img" >
+                        <img class="rounded-circle" id="imageuser" src="" width="40" height="30" alt="Admin"> 
+                        
+                        <span class="status online"></span>
+                        
+                        </span>
+                        <span id="name"></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="user-profile.html">My Profile</a>
+                        <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                        <a class="dropdown-item" onclick="logout()" href="index.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                        class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="user-profile.html">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                    <a class="dropdown-item" onclick="logout()" href="index.html">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="active">
+                            <a href="dashboard.html"><i class="fa fa-home"></i> <span>Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a href="doctors.html"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                        </li>
+
+                        <li>
+                            <a href="departments.html"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
+                        </li>
+                        <li>
+                            <a href="history.html"><i class="fa fa-history"></i> <span>History</span></a>
+                        </li>
+
+                        <li>
+                            <a href="prescriptions.html"><i class="fa fa-file-text"></i> <span>Prescriptions</span></a>
+                        </li>
+                        <li>
+                            <a href="reports.html"><i class="fa fa-file-text"></i> <span>Reports</span></a>
+                        </li>
+                        <li>
+                            <a href="invoices.html"><i class="fa fa-money"></i> <span>Invoices</span></a>
+                        </li>
+
+                       
+
+                    </ul>
+                    </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="content">
+               
+                <!-- bradcam_area_end  -->
+                
+                <!-- depertment_area_start  -->
+                <div class="depertment_area">
+                    <div class="container">
+                     
+                        <div class="row">  
+                            <div class="col-lg-12"> 
+                                <h3>Departments</h3> 
+                                <div class="depart_ment_tab mb-30">
+                                    <ul class="nav" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                                aria-controls="home" aria-selected="true">
+                                                <i class="flaticon-teeth"></i>
+                                                <h4 class="text-uppercase">Dentistry</h4>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                                aria-controls="profile" aria-selected="false">
+                                                <i class="flaticon-cardiovascular"></i>
+                                                <h4 class="text-uppercase"> Cardiology</h4>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                                aria-controls="contact" aria-selected="false">
+                                                <i class="flaticon-ear"></i>
+                                                <h4 class="text-uppercase">ENT </h4>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Astrology-tab" data-toggle="tab" href="#Astrology" role="tab"
+                                                aria-controls="contact" aria-selected="false">
+                                                <i class="flaticon-bone"></i>
+                                                <h4 class="text-uppercase">Orthopedics</h4>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Neuroanatomy-tab" data-toggle="tab" href="#Neuroanatomy" role="tab"
+                                                aria-controls="contact" aria-selected="false">
+                                                <i class="flaticon-lung"></i>
+                                                <h4 class="text-uppercase">Pulmonology</h4>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="Blood-tab" data-toggle="tab" href="#Blood" role="tab"
+                                                aria-controls="contact" aria-selected="false">
+                                                <i width=90px height=50px>
+                                                    <img src="assets/img2/eye.ico " width=45px height=45px>
+                                                </i>
+                                                <h4 class="text-uppercase">Ophthalmology</h4>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dept_main_info white-bg">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-5">
+                                            <div class="dept_thumb">
+                                                <img src="assets/img2/dental.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="dept_info">
+                                                <h3 class="text-uppercase">Dentistry</h3>
+                                                <p>
+                                                    The Dental department ensures high quality dental treatments.<br>An established out
+                                                    -patient department and efficientinpatient<br>
+                                                    facilities are in place since its establishment.<br>The dental outpatient department
+                                                    consists of
+                                                    different departments<br> headed by respective specialists providing primary to
+                                                    tertiary dental care. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-5">
+                                            <div class="dept_thumb">
+                                                <img src="assets/img2/cardio.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="dept_info">
+                                                <h3 class="text-uppercase">Cardiology </h3>
+                                                <p>This department provides medical care to patients who have problems with their heart
+                                                    or circulation.<br>
+                                                    Typical procedures performed include:
+                                                    • electrocardiogram (ECG) and exercise tests to measure heart function<br>
+                                                    • echocardiograms (ultrasound scan of the heart)<br>
+                                                    • scans of the carotid artery in your neck to determine stroke risk<br>
+                                                    • 24-hour blood pressure tests<br>
+                                                    • insertion of pacemakers<br>
+                                                    • cardiac catheterisation (coronary angiography) to see if there are any blocks in
+                                                    your arteries<br></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-5">
+                                            <div class="dept_thumb">
+                                                <img src="assets/img2/ent.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="dept_info">
+                                                <h3 class="text-uppercase"> Ear, Nose and Throat (ENT)</h3>
+                                                <p>The ENT department provides care for patients with a variety of problems,
+                                                    including:<br>
+                                                    • general ear, nose and throat diseases<br>• cancers of the head and neck area<br>
+                                                    • tear duct problems<br>• facial skin lesions<br>• balance and hearing disorders<br>
+                                                    • snoring and sleep apnoea<br>• ENT allergy problems<br>• salivary gland
+                                                    diseases<br>• voice disorders<br></p>
+                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="Astrology" role="tabpanel" aria-labelledby="Astrology-tab">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-5">
+                                            <div class="dept_thumb">
+                                                <img src="assets/img2/ortho.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="dept_info">
+                                                <h3 class="text-uppercase">orthopedics</h3>
+                                                <p>The Department of Orthopaedics is dedicated to relieving pain,<br> improving function
+                                                    and restoring quality of life to the
+                                                    individuals <br>who suffer from musculoskeletal injury or disease.<br> We provide
+                                                    state-of-the-art clinical and surgical
+                                                    orthopaedic <br>patient-centered care with continuous orthopaedic education and
+                                                    development of better treatments through
+                                                    research and innovation. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="Neuroanatomy" role="tabpanel" aria-labelledby="Neuroanatomy-tab">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-5">
+                                            <div class="dept_thumb">
+                                                <img src="assets/img2/pulmo.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="dept_info">
+                                                <h3 class="text-uppercase">pulmonology</h3>
+                                                <p>A branch of medicine that specializes in diagnosing and <br>treating diseases of the
+                                                    lungs and other parts of the
+                                                    respiratory system. <br>These diseases include asthma, emphysema, <br>tuberculosis,
+                                                    and pneumonia.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="Blood" role="tabpanel" aria-labelledby="Blood-tab">
+                
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-5">
+                                            <div class="dept_thumb">
+                                                <img src="assets/img2/ophtha.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="dept_info">
+                                                <h3 class="text-uppercase">Ophthalmology</h3>
+                                                <p>
+                                                    This is the area of medicine and surgery concerned with<br> the eye and its
+                                                    relationship with the brain.<br>
+                                                    A branch of medicine that specializes in diagnosing and <br>treating diseases of the
+                                                    lungs and other parts <br> of the
+                                                    respiratory system</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                </div>
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+             
+        
+
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="assets/js2/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="assets/js2/vendor/jquery-1.12.4.min.js"></script>
+    <script src="assets/js2/popper.min.js"></script>
+    <script src="assets/js2/bootstrap.min.js"></script>
+    <script src="assets/js2/owl.carousel.min.js"></script>
+    <script src="assets/js2/isotope.pkgd.min.js"></script>
+    <script src="assets/js2/ajax-form.js"></script>
+    <script src="assets/js2/waypoints.min.js"></script>
+    <script src="assets/js2/jquery.counterup.min.js"></script>
+    <script src="assets/js2/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js2/scrollIt.js"></script>
+    <script src="assets/js2/jquery.scrollUp.min.js"></script>
+    <script src="assets/js2/wow.min.js"></script>
+    <script src="assets/js2/nice-select.min.js"></script>
+    <script src="assets/js2/jquery.slicknav.min.js"></script>
+    <script src="assets/js2/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js2/plugins.js"></script>
+    <script src="assets/js2/gijgo.min.js"></script>
+    <script src="assets/js2/contact.js"></script>
+    <script src="assets/js2/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js2/jquery.form.js"></script>
+    <script src="assets/js2/jquery.validate.min.js"></script>
+    <script src="assets/js2/mail-script.js"></script>
+
+    <script src="assets/js2/main.js"></script>
+
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+    
+
+            function logout() {
+                    localStorage.clear();
+
+
+                }
+                const userInfo = JSON.parse(localStorage.getItem("currentUser"));
+                    var name = userInfo.name
+                    var image = userInfo.image
+
+                    document.getElementById("name").innerHTML = name;
+                            document.getElementById("imageuser").setAttribute('src', image);
+
+    </script>
+</body>
+
+</html>

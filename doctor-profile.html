@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <title>Cloud Care</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <script src="./node_modules/axios/dist/axios.min.js"> </script>
+
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="dashboard.html" class="logo">
+                    <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Cloud Care</span>
+                </a>
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+
+                <li class="nav-item dropdown has-arrow">
+            <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                <span class="user-img" >
+          <img class="rounded-circle" src="" id="imageuser" width="40" height="30" alt="Admin">
+            <span class="status online"></span>
+                </span>
+                <span id="name"></span>
+            </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="user-profile.html">My Profile</a>
+                        <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                        <a class="dropdown-item" onclick="logout()" href="index.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                        class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="user-profile.html">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                    <a class="dropdown-item" onclick="logout()" href="index.html">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li>
+                            <a href="dashboard.html"><i class="fa fa-home"></i> <span>Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a href="doctors.html"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                        </li>
+
+                        <li>
+                            <a href="departments.html"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
+                        </li>
+
+                        <li>
+                            <a href="history.html"><i class="fa fa-history"></i> <span>History</span></a>
+                        </li>
+                        <li>
+                            <a href="prescriptions.html"><i class="fa fa-file-text"></i> <span>Prescriptions</span></a>
+                        </li>
+
+                        <li>
+                            <a href="reports.html"><i class="fa fa-file-text"></i> <span>Reports</span></a>
+                        </li>
+                        <li>
+                            <a href="invoices.html"><i class="fa fa-money"></i> <span>Invoices</span></a>
+                        </li>
+                       
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="content" id="doctorinfo">
+              
+              
+            </div>
+
+        </div>
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/app.js"></script>
+        <script>
+             const token = localStorage.getItem('token');
+                 var clickeddoc = localStorage.getItem("clickeddoc");
+
+
+               
+                    axios.get(`http://127.0.0.1:8000/api/doctor/doctors/${clickeddoc}`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    })
+                        .then((response) => {
+                            // handle the API response
+                    
+                            const doctor = response.data.data
+                            console.log(response.data)
+                            document.getElementById("doctorinfo").innerHTML = ""
+                            
+                                console.log(doctor)
+                                let content = `
+                                           
+                <div class="row">
+                    <div class="col-sm-7 col-6">
+                        <h4 class="page-title">Doctor Profile</h4>
+                    </div>
+
+                </div>
+                <div class="card-box profile-header">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="profile-view">
+                                <div class="profile-img-wrap">
+                                    <div class="profile-img">
+                                        <a href="#"><img class="avatar" src="${doctor.image}" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="profile-basic">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="profile-info-left">
+                                                <h3 class="user-name m-t-0 mb-0">${doctor.name}</h3>
+                                                <div class="staff-id">Doctor ID : ${doctor.id}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <ul class="personal-info">
+                                                <li>
+                                                    <span class="title">Email:</span>
+                                                    <span class="text"><a href="#">${doctor.email}</a></span>
+                                                </li>
+                                                <li>
+                                                    <span class="title">Visita price:</span>
+                                                    <span class="text"><a href="#">${doctor.price} $</a></span>
+                                                </li>
+
+                                                <li>
+                                                    <span class="title">Department:</span>
+                                                    <span class="text">${doctor.department}</span>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-tabs">
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="about-cont">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card-box">
+                                        <h3 class="card-title">Description</h3>
+                                        <div class="experience-box">
+                                            <ul class="experience-list">
+                                                <li>
+                                                    <div class="experience-user">
+                                                        <div class="before-circle"></div>
+                                                    </div>
+                                                    <div class="experience-content">
+                                                        <div class="timeline-content">
+                                                            <a href="#/" class="name "> ${doctor.description}</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            
+                                                `
+                         document.getElementById("doctorinfo").innerHTML = content
+
+                           
+                        })
+                        .catch((error) => {
+                            console.log(`API call failed: ${error.message}`);
+                        });
+
+    function logout() {
+        localStorage.clear();
+    }
+    const userInfo = JSON.parse(localStorage.getItem("currentUser"));
+        var name = userInfo.name
+        var image = userInfo.image
+
+        document.getElementById("name").innerHTML = name;
+       
+            document.getElementById("imageuser").setAttribute('src', image);
+        </script>
+       
+</body>
+
+
+</html>
